@@ -5,6 +5,13 @@ module Enumerable
   end
 end
 
+class Object
+  def fortschritt
+    Fortschritt.increment
+    self
+  end
+end
+
 if defined?(Rails)
   module Fortschritt::ActiveRecordExtension
 
