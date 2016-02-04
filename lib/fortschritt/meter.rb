@@ -7,6 +7,7 @@ module Fortschritt
       @done            = 0
       @updated_at      = Time.now
       @average_seconds = 0
+      @started_at      = Time.now
     end
 
     def increment
@@ -35,9 +36,12 @@ module Fortschritt
       ((average_seconds * done) + value) / (done + 1)
     end
 
+    def total_elapsed_seconds
+      Time.now - @started_at
+    end
+
     def print!
       Fortschritt.printer.print(self)
     end
-
   end
 end
