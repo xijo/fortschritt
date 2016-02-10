@@ -5,7 +5,7 @@ require 'fortschritt/enumerable'
 
 module Fortschritt
   def self.increment
-    @meter.increment
+    @meter and @meter.increment
   end
 
   def self.init(total)
