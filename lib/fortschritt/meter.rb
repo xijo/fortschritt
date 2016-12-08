@@ -1,13 +1,14 @@
 module Fortschritt
   class Meter
-    attr_accessor :total, :done, :updated_at, :average_seconds
+    attr_accessor :total, :done, :updated_at, :average_seconds, :silent
 
-    def initialize(total)
+    def initialize(total, silent: false)
       @total           = total
       @done            = 0
       @updated_at      = Time.now
       @average_seconds = 0
       @started_at      = Time.now
+      @silent          = silent
     end
 
     def increment
@@ -16,7 +17,7 @@ module Fortschritt
       @average_seconds = calculate_average_seconds(elapsed_seconds)
       @updated_at      = @_now
       @done           += 1
-      print!
+      print! unless @silent
     end
 
     def completed?

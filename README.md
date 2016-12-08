@@ -32,6 +32,18 @@ end
 # will print something like this: 1616/145096 → 00:13:21 → ETA 2016-02-04 18:11:50
 ```
 
+### Silent
+
+If no output is required or wanted invoke `with_fortschritt` with the `silent: true` option
+
+```ruby
+User.all.with_fortschritt(silent: true).find_each do |user|
+  user.fortschritt.valid?
+end
+
+# won't output any progress
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/xijo/fortschritt.

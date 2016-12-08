@@ -1,6 +1,6 @@
 module Enumerable
-  def with_fortschritt
-    Fortschritt.init(size)
+  def with_fortschritt(opts = {})
+    Fortschritt.init(size, opts)
     self
   end
 end
@@ -17,8 +17,8 @@ if defined?(Rails)
 
     extend ActiveSupport::Concern
 
-    def with_fortschritt
-      Fortschritt.init(count)
+    def with_fortschritt(opts = {})
+      Fortschritt.init(count, opts)
       self
     end
   end
