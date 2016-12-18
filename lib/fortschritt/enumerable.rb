@@ -18,7 +18,7 @@ if defined?(Rails)
     extend ActiveSupport::Concern
 
     def with_fortschritt(opts = {})
-      Fortschritt.init(count, opts)
+      Fortschritt.init(size, opts)
       self
     end
   end
