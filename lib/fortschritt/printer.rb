@@ -1,7 +1,7 @@
 module Fortschritt
   class Printer
     def print(meter, stream = STDOUT)
-      stream.print output(meter)
+      stream.print output(meter) if stream.tty?
     end
 
     def output(meter)

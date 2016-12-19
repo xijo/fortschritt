@@ -44,6 +44,10 @@ end
 # won't output any progress
 ```
 
+Please note, within a Rails application fortschritt will detect the `Rails.env.test?` environment and silent itself automatically.
+
+Fortschritt will also never output anything to a non-tty STDOUT.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/xijo/fortschritt.

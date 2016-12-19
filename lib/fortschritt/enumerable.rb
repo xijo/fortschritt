@@ -17,11 +17,7 @@ if defined?(Rails)
 
     extend ActiveSupport::Concern
 
-    # Silence fortschritt in tests and in non-terminal context
     def with_fortschritt(opts = {})
-      unless opts.has_key?(:silent)
-        opts[:silent] = Rails.env.test? || !STDOUT.tty?
-      end
       Fortschritt.init(size, opts)
       self
     end

@@ -8,7 +8,7 @@ module Fortschritt
       @updated_at      = Time.now
       @average_seconds = 0
       @started_at      = Time.now
-      @silent          = silent
+      @silent          = silent || !!(Rails.env.test? if defined?(Rails))
     end
 
     def increment
