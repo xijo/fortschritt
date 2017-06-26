@@ -1,5 +1,11 @@
 # Fortschritt
 
+ * no colors
+ * no config
+ * no tty stuff
+ * no terminal size calculation
+ * no dependencies
+
 ## Installation
 
 Add this line to your application's Gemfile:
