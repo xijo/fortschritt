@@ -8,8 +8,8 @@ module Fortschritt
     @meter and @meter.increment
   end
 
-  def self.init(total, opts = {})
-    @meter = Fortschritt::Meter.new(total, opts)
+  def self.init(total, silent: false)
+    @meter = Fortschritt::Meter.new(total, silent: silent)
   end
 
   def self.printer
