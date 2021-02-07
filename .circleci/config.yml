@@ -1,0 +1,20 @@
+version: 2.1
+
+executors:
+  ruby:
+    docker:
+      - image: circleci/ruby
+
+jobs:
+  test:
+    executor: ruby
+    steps:
+      - checkout
+      - run: bundle
+      - run: gem install rspec
+      - run: rspec
+
+workflows:
+  test:
+    jobs:
+      - test
