@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{non-fancy progress}
   spec.description   = %q{non-fancy progress}
   spec.homepage      = "https://github.com/xijo/fortschritt"
+  spec.license       = "WTFPL"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
