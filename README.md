@@ -5,6 +5,8 @@
  * no tty stuff
  * no terminal size calculation
  * no dependencies
+ 
+![fortschritt](https://user-images.githubusercontent.com/10758879/146650253-878fa450-3a2e-44ad-b28a-ba2dce9050bc.gif)
 
 ## Installation
 
