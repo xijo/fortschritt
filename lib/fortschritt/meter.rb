@@ -9,6 +9,7 @@ module Fortschritt
       @average_seconds = 0
       @started_at      = Time.now
       @silent          = silent || !!(Rails.env.test? if defined?(Rails))
+      @printed_at      = Time.now
     end
 
     def increment
@@ -17,7 +18,7 @@ module Fortschritt
       @average_seconds = calculate_average_seconds(elapsed_seconds)
       @updated_at      = @_now
       @done           += 1
-      print! unless @silent
+      print! unless @silent || debounce?
     end
 
     def completed?
@@ -43,6 +44,13 @@ module Fortschritt
 
     def print!
       Fortschritt.printer.print(self)
+    end
+
+    def debounce?
+      return true if @updated_at - @printed_at < 0.01 && !completed?
+
+      @printed_at = @updated_at
+      false
     end
   end
 end
