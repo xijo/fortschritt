@@ -14,15 +14,13 @@ end
 
 if defined?(Rails)
   module Fortschritt::ActiveRecordExtension
-
-    extend ActiveSupport::Concern
-
     def with_fortschritt(**opts)
       Fortschritt.init(size, **opts)
       self
     end
   end
 
-  ActiveRecord::Relation.send(:include, Fortschritt::ActiveRecordExtension)
+  ActiveRecord::Relation.include Fortschritt::ActiveRecordExtension
+  ActiveRecord::Base.singleton_class.delegate :with_fortschritt, to: :all
 end
 
