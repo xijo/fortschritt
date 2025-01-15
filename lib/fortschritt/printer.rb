@@ -38,12 +38,9 @@ module Fortschritt
 
     private
 
-    # "%d days, %d hours, %d minutes and %d seconds" % [dd, hh, mm, ss]
-    #=> 3 days, 3 hours, 15 minutes and 21 seconds
     def format_seconds(seconds)
       mm, ss = seconds.divmod(60)
       hh, mm = mm.divmod(60)
-      dd, hh = hh.divmod(24)
       "%02d:%02d:%02d" % [hh, mm, ss]
     end
   end
