@@ -1,7 +1,7 @@
 module Enumerable
-  def with_fortschritt(**opts)
-    Fortschritt.init(size, **opts)
-    self
+  def with_fortschritt(**opts, &block)
+    Fortschritt.init(count, **opts)
+    block ? each(&block) : self
   end
 end
 
@@ -14,9 +14,9 @@ end
 
 if defined?(Rails)
   module Fortschritt::ActiveRecordExtension
-    def with_fortschritt(**opts)
-      Fortschritt.init(size, **opts)
-      self
+    def with_fortschritt(**opts, &block)
+      Fortschritt.init(count, **opts)
+      block ? find_each(&block) : self
     end
   end
 
