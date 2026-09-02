@@ -4,8 +4,8 @@ require 'fortschritt/printer'
 require 'fortschritt/enumerable'
 
 module Fortschritt
-  def self.increment
-    @meter and @meter.increment
+  def self.increment(n = 1)
+    @meter and @meter.increment(n)
   end
 
   def self.init(total, silent: false)

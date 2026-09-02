@@ -6,8 +6,8 @@ module Enumerable
 end
 
 class Object
-  def fortschritt
-    Fortschritt.increment
+  def fortschritt(n = 1)
+    Fortschritt.increment(n)
     self
   end
 end
