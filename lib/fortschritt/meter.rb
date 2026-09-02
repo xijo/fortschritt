@@ -12,12 +12,12 @@ module Fortschritt
       @printed_at      = Time.now
     end
 
-    def increment
+    def increment(n = 1)
       @_now            = Time.now
       elapsed_seconds  = @_now - updated_at
       @average_seconds = calculate_average_seconds(elapsed_seconds)
       @updated_at      = @_now
-      @done           += 1
+      @done           += n
       print! unless @silent || debounce?
     end
 

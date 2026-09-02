@@ -40,6 +40,15 @@ end
 # will print something like this: 1616/145096 → 00:13:21 → ETA 2016-02-04 18:11:50
 ```
 
+Both methods accept an optional number, which will increment the counter by that number (defaults to 1):
+
+```ruby
+User.all.with_fortschritt.in_batches do |batch|
+  # do something with `batch`
+  forstchritt(batch.size)
+end
+```
+
 ### Silent
 
 If no output is required or wanted invoke `with_fortschritt` with the `silent: true` option

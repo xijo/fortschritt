@@ -13,6 +13,15 @@ describe Fortschritt::Meter do
     end
   end
 
+  describe '#increment' do
+    it 'increments done' do
+      meter.increment
+      expect(meter.done).to eq 1
+      meter.increment 2
+      expect(meter.done).to eq 3
+    end
+  end
+
   describe '#remaining_seconds' do
     it 'multiplys average_seconds with remaining' do
       meter.done = 2
