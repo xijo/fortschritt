@@ -20,7 +20,9 @@ if defined?(Rails)
     end
   end
 
-  ActiveRecord::Relation.include Fortschritt::ActiveRecordExtension
-  ActiveRecord::Base.singleton_class.delegate :with_fortschritt, to: :all
+  ActiveSupport.on_load(:active_record) do
+    ActiveRecord::Relation.include Fortschritt::ActiveRecordExtension
+    singleton_class.delegate :with_fortschritt, to: :all
+  end
 end
 
